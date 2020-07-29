@@ -21,12 +21,13 @@
             {% endif %}
           </small>
         </h6>
+      
         <p class="card-text mt-4">{{blog_post.content|truncatewords:20}} <a href="{{blog_post.get_absolute_url}}">read
             more</a></p>
 
-        <p class="card-text">
-
-        </p>
+            <h6 class="card-subtitle text-muted ">
+              <small class="text-muted"> Author: {{blog_post.User.first_name}}  {{blog_post.User.last_name}}</small>
+            </h6>
         <div>
           {% if request.user.is_authenticated %}
           {% if request.user.is_staff %}
