@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{object.title}}
+{% endblock title %}  
+
+{% block content %}
+<h5 class="text-center mb-5">{{object.title}}</h5>
+<div class="col-lg-10 mx-auto"> 
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_staff %}
+    <a href="{{object.get_edit_url}}"><i class="fa fa-edit" style="font-size:24px;color:rgb(11, 179, 67)"></i></a>
+    <a href="{{object.get_delete_url}}"> <i class="fa fa-trash" aria-hidden="true"
+        style="font-size:24px;color:rgb(243, 75, 9)"></i> </a>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text text-justify mt-4">{{object.content|linebreaks}}</p>
+      <p class="card-text"><small class="text-muted">Last updated {{object.updated}}</small></p>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+    

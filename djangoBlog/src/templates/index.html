@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{intro}}
+{% endblock title %}
+    
+{% block content %}
+        <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+                <h1 class="display-3 text-center">{{intro}}</h1>
+                
+            </div>
+        </div>
+        </div>
+
+        <div class="container col-lg-10 mx-auto">
+            <div class="row">
+           
+                {% for post in blog_list %}
+                     {% include 'blog/list-inline.html' with blog_post=post truncate=True%}             
+                {% endfor %}
+            </div>
+        </div>
+        
+    
+{% endblock content %}
+    

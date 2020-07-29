@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}           
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+    
+
+{% block content %}
+
+
+
+ <style>
+     .contact-form{
+        background-color: aliceblue;
+        padding: 10px;
+        -webkit-box-shadow: -1px -1px 36px -1px rgba(102,97,102,0.95);
+        -moz-box-shadow: -1px -1px 36px -1px rgba(102,97,102,0.95);
+        box-shadow: -1px -1px 10px -1px rgba(102, 97, 102, 0.452);
+     }
+ </style>   
+<br>
+<div class="container contact-form">
+    <form method="POST" action="." enctype="multipart/form-data">{% csrf_token %}
+       
+       
+            <div class="col-md-12">
+                {{form|crispy}}
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="{{action}}" />
+                </div>
+            </div>
+            
+    </form>
+{% endblock content %}
+    

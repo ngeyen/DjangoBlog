@@ -1,0 +1,42 @@
+<div class="col-lg-4 ">
+  <div class="card mb-3   
+    {% if not blog_post.publish_date %} 
+        border border-warning
+    {% endif %}">
+    <div class="row no-gutters">
+      {% if blog_post.image %}
+      <img src=" {{blog_post.image.url}}" class="card-img-top" alt="...">
+      {% endif %}
+
+      <div class="card-body">
+
+        <h5 class="card-title "><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></h5>
+        <h6 class="card-subtitle text-muted ">
+          <small class="text-muted">
+            {% if blog_post.publish_date %}
+            Last updated {{blog_post.updated|timesince}} ago
+            {% else %}
+            Drafted  {{blog_post.timestamp|timesince}} ago
+            {% endif %}
+          </small>
+        </h6>
+        <p class="card-text mt-4">{{blog_post.content|truncatewords:30}} <a href="{{blog_post.get_absolute_url}}">read
+            more</a></p>
+
+        <p class="card-text">
+
+        </p>
+        <div>
+          {% if request.user.is_authenticated %}
+          {% if request.user.is_staff %}
+          <a href="{{object.get_edit_url}}"><i class="fa fa-edit" style="font-size:16px;color:rgb(11, 179, 67)"></i></a>
+          <a href="{{object.get_delete_url}}"> <i class="fa fa-trash" aria-hidden="true"
+              style="font-size:16px;color:rgb(243, 75, 9)"></i> </a>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

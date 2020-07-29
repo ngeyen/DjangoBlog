@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+ 
+
+{% block content %}
+<div class="row justify-content-md-center">
+    <div class="card " style="width: 40rem;">
+      <div class="card-body justify-content-md-center">
+        <h4 class="card-title text-center">Delete {{object.title}}?</h4>
+  
+        <p class="card-text">Are you sure you want to delete?</p>
+
+        <form method="POST">{% csrf_token %}
+            <button type="submit" class="btn btn-danger " ><i class="fa fa-trash" aria-hidden="true"></i>Yes, delete</button>
+        </form>
+    </div>
+    </div>
+</div>
+{% endblock content %}
