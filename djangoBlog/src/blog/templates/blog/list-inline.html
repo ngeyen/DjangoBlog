@@ -1,11 +1,12 @@
-<div class="col-lg-4 ">
-  <div class="card mb-3   
+<div class="col-lg-4 col-md-6 col-sm-12">
+
+  <div class="card card-list-item mb-3   
     {% if not blog_post.publish_date %} 
         border border-warning
     {% endif %}">
     <div class="row no-gutters">
       {% if blog_post.image %}
-      <img src=" {{blog_post.image.url}}" class="card-img-top card-header-img" alt="...">
+      <img src=" {{blog_post.image.url}}" class="card-img-top card-header-img mb-3" alt="...">
       {% endif %}
 
       <div class="card-body">
@@ -20,7 +21,7 @@
             {% endif %}
           </small>
         </h6>
-        <p class="card-text mt-4">{{blog_post.content|truncatewords:30}} <a href="{{blog_post.get_absolute_url}}">read
+        <p class="card-text mt-4">{{blog_post.content|truncatewords:20}} <a href="{{blog_post.get_absolute_url}}">read
             more</a></p>
 
         <p class="card-text">
